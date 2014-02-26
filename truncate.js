@@ -6,8 +6,8 @@ for
 Streetbank - www.streetbank.com
 */
 (function () {
-  $.fn.truncate = function () {
-    this.each(function (length) {
+  $.fn.truncate = function (length) {
+    this.each(function () {
 
       length = length || 50;
 
@@ -30,13 +30,14 @@ Streetbank - www.streetbank.com
         });
       }
     });
+    return this;
   };
 }());
 
 $(function () {
   $('[data-truncate]').each(function () {
     var el = $(this),
-      length = parseInt(el.attr('[data-truncate]'), 10);
+      length = parseInt(el.attr('data-truncate'), 10);
     el.truncate(length);
   });
 });
